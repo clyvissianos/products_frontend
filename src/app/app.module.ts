@@ -1,13 +1,13 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule, Routes } from "@angular/router";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 import { SharedModule } from "shared";
+import { UiModule } from "ui";
 
 import { AppComponent } from "./app.component";
-import { WelcomeComponent } from "./welcome/welcome.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-import { DropdownComponent } from "./dropdown/dropdown.component";
 
 const routes: Routes = [
   {
@@ -19,18 +19,23 @@ const routes: Routes = [
     loadChildren: () =>
       import("./products/products.module").then((m) => m.ProductsModule),
   },
-  { path: "", component: WelcomeComponent },
+  {
+    path: "",
+    loadChildren: () =>
+      import("./public/public.module").then((m) => m.PublicModule),
+  },
   { path: "**", component: PageNotFoundComponent },
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    WelcomeComponent,
-    PageNotFoundComponent,
-    DropdownComponent,
+  declarations: [AppComponent, PageNotFoundComponent],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(routes),
+    SharedModule,
+    UiModule,
+    HttpClientModule,
   ],
-  imports: [BrowserModule, RouterModule.forRoot(routes), SharedModule],
   providers: [],
   bootstrap: [AppComponent],
 })

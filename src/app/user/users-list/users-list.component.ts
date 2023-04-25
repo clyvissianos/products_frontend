@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { UserService } from "../user.service";
-import { User, UserAPIList } from "../user.interfaces";
+import { User, UserAPIList } from "shared";
 
 import { Subscription } from "rxjs";
 import { orderBy } from "lodash-es";

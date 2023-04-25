@@ -8,14 +8,16 @@ import { UserService } from "./user.service";
 
 import { UsersListComponent } from "./users-list/users-list.component";
 import { UserInsertComponent } from "./user-insert/user-insert.component";
+import { WelcomeComponent } from "./welcome/welcome.component";
 
 const routes: Routes = [
   { path: "list", component: UsersListComponent },
   { path: "insert", component: UserInsertComponent },
+  { path: "", component: WelcomeComponent },
 ];
 
 @NgModule({
-  declarations: [UsersListComponent, UserInsertComponent],
+  declarations: [UsersListComponent, UserInsertComponent, WelcomeComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

@@ -8,13 +8,29 @@
           </a>
         </strong>
       </span>
-      <span>Coding Factory</span>
-      <ul class="navbar-nav">
-        <app-dropdown [dropdownLabel]="'Users'" [items]="usersMenu"></app-dropdown>
-        <app-dropdown [dropdownLabel]="'Products'" [items]="productsMenu"></app-dropdown>
+
+      <span *ngIf="!(isLoggedIn$ | async); else fullname">Coding Factory</span>
+      <ng-template #fullname>
+        <span> {{ loggedInUserFullname$ | async }}</span>
+        <button class="ms-2 btn btn-danger btn-sm" (click)="logout()">
+          Logout
+        </button>
+      </ng-template>
+
+      <ul *ngIf="isLoggedIn$ | async; else loggedOut" class="navbar-nav">
+        <lib-dropdown [dropdownLabel]="'Users'" [items]="usersMenu"></lib-dropdown>
+        <lib-dropdown [dropdownLabel]="'Products'" [items]="productsMenu"></lib-dropdown>
       </ul>
+
+      <ng-template #loggedOut>
+        <a class="btn btn-primary btn-sm" routerLink="/login">Login</a>
+      </ng-template>
     </nav>
     <div class="row-mt-2">
+
+      <lib-alert *ngFor="let alert of alerts; index as i" [type]="alert.type ?? 'info'" [heading]="alert.heading"
+        [text]="alert.text" (dismiss)="onAlertDismiss(i)"></lib-alert>
+
       <router-outlet></router-outlet>
     </div>
   </div>

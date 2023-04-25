@@ -1,0 +1,9 @@
+<div class="alert alert-{{
+    type
+  }} alert-dismissible fade show d-flex align-items-center justify-content-center" role="alert">
+    <strong *ngIf="heading" class="me-2">{{ heading }}</strong> {{ text }}
+    <div *ngIf="spinner" class="ms-2 spinner-border text-{{ type }}" role="status">
+        <span class="sr-only"></span>
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="onDismiss()"></button>
+</div>

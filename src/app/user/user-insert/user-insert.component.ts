@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { User } from "../user.interfaces";
+import { User } from "shared";
 import { UserService } from "../user.service";
 
 @Component({
