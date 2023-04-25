@@ -11,6 +11,9 @@ const USER_API = "https://codingfactory.ddns.net/api/user";
   providedIn: "root",
 })
 export class AppService {
+  private isLoadedingSubject = new BehaviorSubject<boolean>(false);
+  isLoading$ = this.isLoadedingSubject.asObservable();
+
   private loggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.loggedInSubject.asObservable();
 
@@ -57,5 +60,9 @@ export class AppService {
       text: "You are logged out.",
     });
     this.router.navigate(["./"]);
+  }
+
+  setIsLoading(isLoading: boolean) {
+    this.isLoadedingSubject.next(isLoading);
   }
 }

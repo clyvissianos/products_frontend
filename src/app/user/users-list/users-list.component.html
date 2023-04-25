@@ -1,25 +1,25 @@
-<div *ngIf="loading" class="mt-2 row alert alert-info">
+<!-- <div *ngIf="loading" class="mt-2 row alert alert-info">
     Loading Users ...
     <div class="spinner-border text-primary" role="status">
         <span class="sr-only"></span>
     </div>
-</div>
+</div> -->
 
 <div *ngIf="userList.length">
     <table class="table table-striped">
         <thead>
             <th scope="col">
-                <button (click)="toggleSort('username')" class="btn btn-secondary btn-sm">
+                <button (click)="toggleSort('username')" class="btn btn-sm">
                     username
                 </button>
             </th>
             <th scope="col">
-                <button (click)="toggleSort('name')" class="btn btn-secondary btn-sm">
+                <button (click)="toggleSort('name')" class="btn btn-sm">
                     First
                 </button>
             </th>
             <th scope="col">
-                <button (click)="toggleSort('surname')" class="btn btn-secondary btn-sm">
+                <button (click)="toggleSort('surname')" class="btn btn-sm">
                     Last
                 </button>
             </th>
