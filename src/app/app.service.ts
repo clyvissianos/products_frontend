@@ -27,6 +27,7 @@ export class AppService {
   ) {}
 
   login(username: string, password: string) {
+    this.setIsLoading(true);
     this.http
       .get<UserAPIUserOne>(`${USER_API}/findOne/${username}`)
       .subscribe((user) => {
@@ -48,6 +49,7 @@ export class AppService {
             text: "Wrong username or password",
           });
         }
+        this.setIsLoading(false);
       });
   }
 
@@ -59,7 +61,7 @@ export class AppService {
       heading: "",
       text: "You are logged out.",
     });
-    this.router.navigate(["./"]);
+    this.router.navigate([""]);
   }
 
   setIsLoading(isLoading: boolean) {
