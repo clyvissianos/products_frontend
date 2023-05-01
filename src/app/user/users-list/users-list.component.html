@@ -1,39 +1,40 @@
-<!-- <div *ngIf="loading" class="mt-2 row alert alert-info">
-    Loading Users ...
-    <div class="spinner-border text-primary" role="status">
-        <span class="sr-only"></span>
-    </div>
-</div> -->
-
-<div *ngIf="userList.length">
+<div class="mt-5" *ngIf="userList.length">
     <table class="table table-striped">
-        <thead>
-            <th scope="col">
-                <button (click)="toggleSort('username')" class="btn btn-sm">
-                    username
-                </button>
-            </th>
-            <th scope="col">
-                <button (click)="toggleSort('name')" class="btn btn-sm">
-                    First
-                </button>
-            </th>
-            <th scope="col">
-                <button (click)="toggleSort('surname')" class="btn btn-sm">
-                    Last
-                </button>
-            </th>
-            <th scope="col">
-                Email
-            </th>
-            <th scope="col">
-                Address
-            </th>
-            <th scope="col">
-                Phone
-            </th>
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">
+                    <button (click)="toggleSort('username')" class="btn btn-sm border-0 fw-bold text-white">
+                        username
+                    </button>
+                </th>
+                <th scope="col">
+                    <button (click)="toggleSort('name')" class="btn btn-sm border-0 fw-bold text-white">
+                        First
+                    </button>
+                </th>
+                <th scope="col">
+                    <button (click)="toggleSort('surname')" class="btn btn-sm border-0 fw-bold text-white">
+                        Last
+                    </button>
+                </th>
+                <th scope="col">
+                    <button class="btn btn-sm border-0 fw-bold text-white">
+                        Email
+                    </button>
+                </th>
+                <th scope="col">
+                    <button class="btn btn-sm border-0 fw-bold text-white">
+                        Address
+                    </button>
+                </th>
+                <th scope="col">
+                    <button class="btn btn-sm border-0 fw-bold text-white">
+                        Phone
+                    </button>
+                </th>
+            </tr>
         </thead>
-        <tbody>
+        <tbody class="table-group-divider">
             <tr *ngFor="let user of userList">
                 <td>
                     {{ user.username }}

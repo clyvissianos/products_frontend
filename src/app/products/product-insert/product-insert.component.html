@@ -1,0 +1,25 @@
+<div class="mt-5">
+    <h2 class="mb-3 text-decoration-underline">Product Form</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="product" class="form-label">Product</label>
+            <input type="text" class="form-control" id="product" formControlName="product" />
+        </div>
+        <div class="mb-3">
+            <label for="cost" class="form-label">Cost</label>
+            <input type="text" class="form-control" id="cost" formControlName="cost" />
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description" formControlName="description" />
+        </div>
+        <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="text" class="form-control" id="quantity" formControlName="quantity" />
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="!form.valid">
+            Submit
+        </button>
+    </form>
+</div>

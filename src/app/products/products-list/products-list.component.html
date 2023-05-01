@@ -1,0 +1,44 @@
+<div class="mt-5" *ngIf="productList.length">
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">
+                    <button (click)="toggleSort('product')" class="btn btn-sm border-0 fw-bold text-white">
+                        Product
+                    </button>
+                </th>
+                <th scope="col">
+                    <button (click)="toggleSort('cost')" class="btn btn-sm border-0 fw-bold text-white">
+                        Cost
+                    </button>
+                </th>
+                <th scope="col">
+                    <button class="btn btn-sm border-0 fw-bold text-white">
+                        Description
+                    </button>
+                </th>
+                <th scope="col">
+                    <button (click)="toggleSort('quantity')" class="btn btn-sm border-0 fw-bold text-white">
+                        Quantity
+                    </button>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of productList">
+                <td>
+                    {{ product.product }}
+                </td>
+                <td>
+                    {{ product.cost }}
+                </td>
+                <td>
+                    {{ product.description }}
+                </td>
+                <td>
+                    {{ product.quantity }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
